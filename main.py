@@ -8,26 +8,26 @@ class Empleado:
         self.fecha_nacimiento = datetime.strptime(fecha_nacimiento, "%d-%m-%Y")
         self.salario = salario
 
-    def nombre_completo(self):
+    def full_name(self):
         return f"{self.nombres} {self.apellidos}"
 
     def iniciales(self):
         return f"{self.nombres[0]}.{self.apellidos[0]}."
 
-    def edad(self):
+    def age(self):
         hoy = datetime.now()
-        edad = hoy.year - self.fecha_nacimiento.year
+        age = hoy.year - self.fecha_nacimiento.year
         if hoy.month < self.fecha_nacimiento.month or (hoy.month == self.fecha_nacimiento.month and hoy.day < self.fecha_nacimiento.day):
-            edad -= 1
-        return edad
+           age -= 1
+        return age
 
-    def ganancia_anual(self):
+    def annual_profit(self):
         return self.salario * 13
 
 
 empleado = Empleado("María Angélica", "Vargas Pepín", "402-3235234-2", "02-02-1995", 45000)
 
-print("Nombre completo:", empleado.nombre_completo())
+print("Nombre completo:", empleado.full_name())
 print("Iniciales:", empleado.iniciales())
-print("Edad:", empleado.edad(), "años")
-print("Ganancia anual: RD$", empleado.ganancia_anual())
+print("Edad:", empleado.age(), "años")
+print("Ganancia anual: RD$", empleado.annual_profit())
